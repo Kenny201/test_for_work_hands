@@ -14,11 +14,12 @@ use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
 {
-    public function __construct(private readonly AdvertisementRepository $advertisementRepositoryInterface) { }
+    public function __construct(private readonly AdvertisementRepository $advertisementRepository) { }
     public function show($advertisementId)
     {
         try {
-            $advertisement = $this->advertisementRepositoryInterface->getById($advertisementId);
+            $advertisement = $this->advertisementRepository->getById($advertisementId);
+
             return ApiResponseClass::sendResponse(new AdvertisementDetailResource($advertisement), '', 200);
         }
         catch (ModelNotFoundException $ex) {
@@ -36,7 +37,7 @@ class AdvertisementController extends Controller
             'sort_direction' => $request->sort_direction,
         ];
 
-        $data = $this->advertisementRepositoryInterface->index($details);
+        $data = $this->advertisementRepository->index($details);
 
         return ApiResponseClass::sendResponse(AdvertisementsResource::collection($data), '', 200);
     }
@@ -51,7 +52,7 @@ class AdvertisementController extends Controller
         ];
 
         try {
-            $advertisement = $this->advertisementRepositoryInterface->store($details);
+            $advertisement = $this->advertisementRepository->store($details);
 
             return ApiResponseClass::sendResponse(new AdvertisementResource($advertisement),
                 'Объявление cоздано успешно',
