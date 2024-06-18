@@ -67,6 +67,7 @@ export default {
     },
     methods: {
         ...mapActions(useAdvertisementStore, ['getAdvertisements']),
+
         change_sort(field) {
             if (this.params.sort_field === field) {
                 this.params.sort_direction = this.params.sort_direction === 'asc' ? 'desc' : 'asc';

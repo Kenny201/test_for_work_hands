@@ -1,9 +1,6 @@
 <template>
     <h1 class="text-black text-4xl text-center"> {{ advertisement.name }}</h1>
-
-    <div v-for="image in advertisement.images">
-        <img :src="image">
-    </div>
+        <img :src="advertisement.image">
 
     <div class="flex-col flex">
         <span> Цена: {{ advertisement.price }} </span>
