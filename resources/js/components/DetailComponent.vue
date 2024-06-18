@@ -6,7 +6,6 @@
     </div>
 
     <div class="flex-col flex">
-        <span> Описание: {{ advertisement.description }} </span>
         <span> Цена: {{ advertisement.price }} </span>
     </div>
 </template>

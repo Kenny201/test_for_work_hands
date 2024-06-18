@@ -22,7 +22,7 @@ class AdvertisementDetailResource extends JsonResource
         } else {
             return [
                 'id' => $this->id,
-                'description' => $this->description,
+                'image' => $this->images[0],
                 'name' => $this->name,
                 'price' => $this->price,
             ];
