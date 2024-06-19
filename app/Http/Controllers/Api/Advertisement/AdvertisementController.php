@@ -8,13 +8,14 @@ use App\Http\Resources\AdvertisementDetailResource;
 use App\Http\Resources\AdvertisementResource;
 use App\Http\Resources\AdvertisementsResource;
 use App\Http\Responses\ApiResponseClass;
-use App\Repositories\AdvertisementRepository;
+use App\Interfaces\AdvertisementRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
 {
-    public function __construct(private readonly AdvertisementRepository $advertisementRepository) { }
+    public function __construct(public AdvertisementRepositoryInterface $advertisementRepository) { }
+
     public function show($advertisementId)
     {
         try {

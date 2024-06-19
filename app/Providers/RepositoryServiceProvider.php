@@ -14,7 +14,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(AdvertisementRepositoryInterface::class,AdvertisementRepository::class);
-
     }
 
     /**

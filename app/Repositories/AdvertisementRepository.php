@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Interfaces\AdvertisementRepositoryInterface;
 use App\Models\Advertisement;
 use http\Client\Request;
 
-class AdvertisementRepository
+class AdvertisementRepository implements AdvertisementRepositoryInterface
 {
     public function index(array $data)
     {
